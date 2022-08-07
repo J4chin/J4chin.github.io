@@ -218,7 +218,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2022-08-07 17:13:31 / 修改时间：18:33:09" itemprop="dateCreated datePublished" datetime="2022-08-07T17:13:31+08:00">2022-08-07</time>
+      <time title="创建时间：2022-08-07 17:13:31 / 修改时间：18:45:33" itemprop="dateCreated datePublished" datetime="2022-08-07T17:13:31+08:00">2022-08-07</time>
     </span>
 
   
@@ -231,9 +231,17 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="about-git"><a href="#about-git" class="headerlink" title="about git"></a>about git</h1><hr>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#仓库推拉</span></span><br><span class="line">ssh-keygen <span class="comment">#创建密钥</span></span><br><span class="line">ssh-add <span class="comment">#添加密钥</span></span><br><span class="line">git init <span class="comment">#创建新库  </span></span><br><span class="line">git remote add origin 代码仓库地址 <span class="comment">#添加远程连接</span></span><br><span class="line">git <span class="built_in">clone</span> -b master url.git [dir] <span class="comment"># 克隆mastr  </span></span><br><span class="line">git add  <span class="comment">#提交修改</span></span><br><span class="line">git commit <span class="comment">#提交到本地</span></span><br><span class="line">git push <span class="comment">#推送到库房</span></span><br><span class="line">git <span class="built_in">log</span> <span class="comment">#推送日志</span></span><br><span class="line">git pull origin mastr <span class="comment">#拉取mastr并合并</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#分支</span></span><br><span class="line">git checkout -b 本地分支名 [远程分支名] <span class="comment">#创建并切换分支</span></span><br><span class="line">git branch dev <span class="comment">#创建分支</span></span><br><span class="line">git checkout dev <span class="comment">#切换到dev分支</span></span><br><span class="line">git remote 显示远程分支</span><br><span class="line">git fetch origin mastr <span class="comment">#获取mastr分支的更新</span></span><br><span class="line">git <span class="built_in">log</span> -p master..origin/master <span class="comment">#比较分支差别</span></span><br><span class="line">git merge origin/master <span class="comment">#合并分支到本地</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+          <h1 id="about-git"><a href="#about-git" class="headerlink" title="about git"></a>about git</h1><ul>
+<li><u> 基础的git命令</u> <a target="_blank" rel="noopener" href="https://git-scm.com/doc">git Documentation</a></li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/08/07/about-git/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
