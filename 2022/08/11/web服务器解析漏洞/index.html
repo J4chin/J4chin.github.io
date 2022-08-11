@@ -139,7 +139,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -254,7 +254,7 @@
 <li>允许/阻止特定的用户或者目录的访问</li>
 <li>禁止目录列表</li>
 <li>配置默认文档等功能<h3 id="多后缀"><a href="#多后缀" class="headerlink" title="多后缀"></a>多后缀</h3>Apache在处理多后缀文件时，会根据其特性，自右往左依次识别，直到遇到自己可以识别的后缀名时，才进行解析<h2 id="iis"><a href="#iis" class="headerlink" title="iis"></a>iis</h2><h3 id="错误配置"><a href="#错误配置" class="headerlink" title="错误配置"></a>错误配置</h3>IIS7.0中，在默认Fast-CGI开启<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cgi.fix_pathinfo</span><br></pre></td></tr></table></figure>
-文件test.jpg<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> fputs(fopen(<span class="string">&#x27;shell.php&#x27;</span>,<span class="string">&#x27;w&#x27;</span>),<span class="string">&#x27;&lt;?php @eval($_POST[x])?&gt;&#x27;</span>)<span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+文件test.jpg<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span>                                                     <span class="meta">?&gt;</span><span class="string">&#x27;)?&gt;</span></span><br></pre></td></tr></table></figure>
 访问URL/test.jpg/x.php test.jpg将会被服务器当成php文件执行,目录下创建了一个一句话木马文件 shell.php<h3 id="目录解析漏洞"><a href="#目录解析漏洞" class="headerlink" title="目录解析漏洞"></a>目录解析漏洞</h3>网站下建立文件夹的名字为*.asp、*.asa、*.cer、*.cdx 的文件夹,其目录内的任何扩展名的文件都会被IIS当做asp文件来解释并执行<h3 id="文件名解析漏洞"><a href="#文件名解析漏洞" class="headerlink" title="文件名解析漏洞"></a>文件名解析漏洞</h3>分号后面的内容不被解析，也就是说 xie.asp;.jpg 会被服务器看成是xie.asp<h3 id="win系统特性去除"><a href="#win系统特性去除" class="headerlink" title="win系统特性去除[ ][.]"></a>win系统特性去除[ ][.]</h3>在windows环境下，xx.jpg[空格] 或 xx.jpg. 这两类文件都是不允许存在的，若这样命名，windows会默认除去空格或点，通过抓包，在文件名后加一个空格或者点绕过黑名单。若上传成功，空格和点都会被windows自动消除<h2 id="nginx"><a href="#nginx" class="headerlink" title="nginx"></a>nginx</h2><h3 id="错误配置-1"><a href="#错误配置-1" class="headerlink" title="错误配置"></a>错误配置</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php.ini 文件中开启了 cgi.fix_pathinfo</span><br></pre></td></tr></table></figure>
 cgi.fix_pathinfo，该值默认为1，表示开启。开启这一选项有什么用呢？看名字就知道是对文件路径进行处理。举个例子，当 php 遇到文件路径 /<a target="_blank" rel="noopener" href="http://aaa.xxx/bbb.yyy/ccc.zzz">http://aaa.xxx/bbb.yyy/ccc.zzz</a> 时，若 /<a target="_blank" rel="noopener" href="http://aaa.xxx/bbb.yyy/ccc.zzz">http://aaa.xxx/bbb.yyy/ccc.zzz</a> 不存在，则会去掉最后的 /ccc.zzz ，然后判断 /<a target="_blank" rel="noopener" href="http://aaa.xxx/bbb.yyy">http://aaa.xxx/bbb.yyy</a> 是否存在，若存在，则把 /<a target="_blank" rel="noopener" href="http://aaa.xxx/bbb.yyy">http://aaa.xxx/bbb.yyy</a> 当做文件 /<a target="_blank" rel="noopener" href="http://aaa.xxx/bbb.yyy/ccc.zzz">http://aaa.xxx/bbb.yyy/ccc.zzz</a> ，若 /<a target="_blank" rel="noopener" href="http://aaa.xxx/bbb.yyy">http://aaa.xxx/bbb.yyy</a> 仍不存在，则继续去掉 /bbb.yyy ，以此类推<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">漏洞形式</span><br><span class="line">www.xxxx.com/UploadFiles/p_w_picpath/1.jpg/1.php</span><br><span class="line">www.xxxx.com/UploadFiles/p_w_picpath/1.jpg%00.php</span><br><span class="line">www.xxxx.com/UploadFiles/p_w_picpath/1.jpg/%20\0.php</span><br></pre></td></tr></table></figure>
 该选项在配置文件 php.ini 中。<h3 id="空字节-00"><a href="#空字节-00" class="headerlink" title="空字节%00"></a>空字节%00</h3>在图片中嵌入PHP代码然后通过访问 xxx.jpg%00.php<h3 id="CVE-2013-4547-20-00"><a href="#CVE-2013-4547-20-00" class="headerlink" title="CVE-2013-4547(%20%00)"></a>CVE-2013-4547(%20%00)</h3></li>
@@ -277,8 +277,8 @@ cgi.fix_pathinfo，该值默认为1，表示开启。开启这一选项有什么
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/08/11/SQL%E6%B3%A8%E5%85%A5/" rel="next" title="SQL注入">
-                  SQL注入 <i class="fa fa-chevron-right"></i>
+                <a href="/2022/08/12/%E7%B3%BB%E7%BB%9F%E6%97%A5%E5%BF%97/" rel="next" title="系统日志">
+                  系统日志 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
