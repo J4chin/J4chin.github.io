@@ -169,20 +169,6 @@
   </url>
   
   <url>
-    <loc>https://j4chin.github.io/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95-apache-iis-nginx/</loc>
-    <lastmod>2023-04-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://j4chin.github.io/tags/linux-lvm/</loc>
-    <lastmod>2023-04-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://j4chin.github.io/tags/windows-linux-LOG/</loc>
     <lastmod>2023-04-02</lastmod>
     <changefreq>weekly</changefreq>
@@ -190,7 +176,21 @@
   </url>
   
   <url>
+    <loc>https://j4chin.github.io/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95-apache-iis-nginx/</loc>
+    <lastmod>2023-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://j4chin.github.io/tags/hotkey-windows-linux/</loc>
+    <lastmod>2023-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://j4chin.github.io/tags/linux-lvm/</loc>
     <lastmod>2023-04-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
